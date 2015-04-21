@@ -3,27 +3,39 @@ Test Suits
 1. RSS Feeds
 
 1) Feeds are defined
+
    Expected: rss feeds are defined
+
 2) URL defined and that the URL is not empty.
+
    Expected: feed url is present
 
 3) name defined and that the name is not empty
+
    Expected: feed name is present
 
 2. The Menu
 
 1) Menu is hidden by default
+
    Expected: Menu should be hidden upon page load
+
 2) Menu visibility changes on click
+
    Expected: Menu visibility should be toggled upon menu button click
 
 3. Initial Entries
+
    When the loadFeed function is called and completes its work
+
    Expected:Feed container should have at least a single .entry element
 
 4. New Feed Selection
+
    Feed content changes
+
    Expected:Feed content should change upon feed selection
+
 -------------------------------------------------------------------------
 # Project Overview
 
@@ -64,3 +76,4 @@ You will learn how to use Jasmine to write a number of tests against a pre-exist
 12. Write a test that ensures when the loadFeed function is called and completes its work, there is at least a single .entry element within the .feed container. Remember, loadFeed() is asynchronous so this test wil require the use of Jasmine's beforeEach and asynchronous done() function.
 13. Write a test that ensures when a new feed is loaded by the loadFeed function that the content actually changes. Remember, loadFeed() is asynchronous.
 14. When complete - all of your tests should pass.
+
