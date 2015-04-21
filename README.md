@@ -1,3 +1,30 @@
+Test Suits
+
+1. RSS Feeds
+
+1) Feeds are defined
+   Expected: rss feeds are defined
+2) URL defined and that the URL is not empty.
+   Expected: feed url is present
+
+3) name defined and that the name is not empty
+   Expected: feed name is present
+
+2. The Menu
+
+1) Menu is hidden by default
+   Expected: Menu should be hidden upon page load
+2) Menu visibility changes on click
+   Expected: Menu visibility should be toggled upon menu button click
+
+3. Initial Entries
+   When the loadFeed function is called and completes its work
+   Expected:Feed container should have at least a single .entry element
+
+4. New Feed Selection
+   Feed content changes
+   Expected:Feed content should change upon feed selection
+-------------------------------------------------------------------------
 # Project Overview
 
 In this project you are given a web-based application that reads RSS feeds. The original developer of this application clearly saw the value in testing, they've already included [Jasmine](http://jasmine.github.io/) and even started writing their first test suite! Unfortunately, they decided to move on to start their own company and we're now left with an application with an incomplete test suite. That's where you come in.
