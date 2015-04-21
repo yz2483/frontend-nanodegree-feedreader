@@ -1,6 +1,6 @@
 Test Suits
 
-1. RSS Feeds
+* RSS Feeds
 
 1) Feeds are defined
 
@@ -14,7 +14,7 @@ Expected: feed url is present
 
 Expected: feed name is present
 
-2. The Menu
+* The Menu
 
 1) Menu is hidden by default
 
@@ -24,13 +24,13 @@ Expected: Menu should be hidden upon page load
 
 Expected: Menu visibility should be toggled upon menu button click
 
-3. Initial Entries
+* Initial Entries
 
 When the loadFeed function is called and completes its work
 
 Expected:Feed container should have at least a single .entry element
 
-4. New Feed Selection
+* New Feed Selection
 
 Feed content changes
 
