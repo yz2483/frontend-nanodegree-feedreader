@@ -27,26 +27,29 @@ $(function () {
         });
 
 
-        allFeeds.forEach(function (feed) {
-            /* Loops through each feed
-            * in the allFeeds object and ensures it has a URL defined
-            * and that the URL is not empty.
-            */
-            it('url is defined and not empty', function () {
+        /* Loops through each feed
+        * in the allFeeds object and ensures it has a URL defined
+        * and that the URL is not empty.
+        */
+        it('url is defined and not empty', function () {
+            allFeeds.forEach(function (feed) {
+               
                 expect(feed.url).toBeDefined();
                 expect(feed.url.length).not.toBe(0);
-            });
+             });
+        });
 
 
-            /*loops through each feed
-            * in the allFeeds object and ensures it has a name defined
-            * and that the name is not empty.
-            */
-            it('name is defined and not empty', function () {
+        /*loops through each feed
+        * in the allFeeds object and ensures it has a name defined
+        * and that the name is not empty.
+        */
+        it('name is defined and not empty', function () {
+            allFeeds.forEach(function (feed) {
                 expect(feed.name).toBeDefined();
                 expect(feed.name.length).not.toBe(0);
             });
-        });
+        });       
     });
 
 
@@ -66,14 +69,18 @@ $(function () {
         it("Toggle visibility of the menu link when clicked", function () {
             var menuIcon = $('.menu-icon-link');
 
-            //Check if the menu display when clicked
+            //Before click, the menu should be hidden
+             expect(body.hasClass('menu-hidden')).toBe(true);
+
+            //Check if the menu displays when clicked
             menuIcon.click();
-            expect(body.attr('class')).toBe('');
+            expect(body.hasClass('menu-hidden')).not.toBe(true);
 
 
-            //Check if the menu hide when clicked again
+            //Check if the menu hides when clicked again
             menuIcon.click();
-            expect(body.attr('class')).toBe('menu-hidden');
+            expect(body.hasClass('menu-hidden')).toBe(true);
+            //expect(body.attr('class')).toBe('menu-hidden');
         });
     });
 
@@ -82,17 +89,14 @@ $(function () {
     describe('Initial Entries', function () {
         //Jasmine's beforeEach and asynchronous done() function
         beforeEach(function (done) {
-            loadFeed(0, function () {
-                done();
-            });
+            loadFeed(0, done);              
         });
 
         /*Check when the loadFeed function is called and completes its work, 
         there is at least a single .entry element within the .feed container*/
-        it("Check the number of loaded feeds is greater than 1", function (done) {
+        it("Check the number of loaded feeds is greater than 1", function () {
             var numOfFeeds = $('.feed').children('.entry-link').children('.entry').length;
-            expect(numOfFeeds).toBeGreaterThan(1);
-            done();
+            expect(numOfFeeds).toBeGreaterThan(0);            
         });
     });
 
@@ -100,26 +104,21 @@ $(function () {
     /* Test suite named "New Feed Selection"*/
     describe('New Feed Selection', function () {
 
-        
-
         //Set current feed to a variable
         var currentFeed;
 
         //Jasmine's beforeEach and asynchronous done() function
         beforeEach(function (done) {
             currentFeed = $('.feed').html();
-            loadFeed(3, function () {
-                done();
-            });
+            loadFeed(3, done);
         });
 
         /*Check when a new feed is loaded by the loadFeed function 
         that the content actually changes*/
-        it('changes the content displayed', function (done) {
+        it('changes the content displayed', function () {
             var newFeed = $('.feed').html();
          /* expect(currentFeed).not.toBe(newFeed); */
-            expect(currentFeed).not.toEqual(newFeed);           
-            done();
+            expect(currentFeed).not.toEqual(newFeed);
         });
 
     });
